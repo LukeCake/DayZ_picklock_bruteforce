@@ -106,7 +106,7 @@ def basic_change_loop_1():
 
     keyboard.press(Key.enter)
     keyboard.release(Key.enter)
-    
+
 time.sleep(4)
 loop_number = 0
 counter = 0
