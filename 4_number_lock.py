@@ -14,6 +14,7 @@ import time
 keyboard = Controller()
 
 list = [0, 0, 0, 0]
+hold_time = 0.2
 # print(list)
 
 def hold_key(key, hold_time):
@@ -31,11 +32,11 @@ def one_loop():
         list[3] = list[3] + 1
         # print("ring_4: ", one_loop_count)
         Fone_loop_count = one_loop_count + 1
-        hold_key('A', 0)
+        hold_key('F', hold_time)
         # list[loop_nuber_1] = i+1
         # print(list)
         #for tesyt
-        key = "x"
+        key = "-"
         keyboard.press(key)
         keyboard.release(key)
 
@@ -53,7 +54,7 @@ def change_loop(loop_numer_2):
         keyboard.press(key)
         keyboard.release(key)
 
-    hold_key('F', 0)
+    hold_key('F', hold_time)
     print("hold F")
 
     for i in range(loop_numer_2, 3):
@@ -67,7 +68,7 @@ def basic_change_loop(loop_number_3):
         key = "f"
         keyboard.press(key)
         keyboard.release(key)
-    hold_key('F', 0)
+    hold_key('F', hold_time)
 
     for i in range (0, loop_number_3+1):
         key = "f"
@@ -78,11 +79,11 @@ def basic_change_loop(loop_number_3):
     keyboard.release(Key.enter)
 
 def basic_change_loop_2():
-    for i in range (0, 1):
+    for i in range (0, 2):
         key = "f"
         keyboard.press(key)
         keyboard.release(key)
-    hold_key('F', 0)
+    hold_key('F', hold_time)
 
     for i in range (0, 2):
         key = "f"
@@ -96,33 +97,31 @@ def basic_change_loop_1():
     key = "f"
     keyboard.press(key)
     keyboard.release(key)
-    hold_key('F', 0)
+    hold_key('F', hold_time)
 
-    for i in range (0, 3):
+    for i in range (0, 2):
         key = "f"
         keyboard.press(key)
         keyboard.release(key)
 
     keyboard.press(Key.enter)
     keyboard.release(Key.enter)
-
-
+    
 time.sleep(4)
 loop_number = 0
 counter = 0
 loop_number_2 = 0
 
 ring_1 = 0
-list[0] = 0
 # print("ring_1:", ring_1)
 for i in range (0, 10):
-    print(list)
     ring_2 = 0
     list[1] = 0
     # otestovat 10 číslic na kruhu x-9-x-x
     for i in range (0, 10):
         # print("ring_2:", ring_2)
         print(list)
+
         ring_3 = 0
         list[2] = 0
         # otestovat 10 číslic na kruhu x-x-9-9
@@ -137,11 +136,10 @@ for i in range (0, 10):
             list[2] = list[2]+1
         basic_change_loop_2()
         # counter = counter +1
-        # ring_2 = ring_2 + 1
+        ring_2 = ring_2 + 1
         list[1] = list[1]+1
-    list[0] = list[0] + 1
     basic_change_loop_1()
-
+    list[0] = list[0] + 1
 
 
 
