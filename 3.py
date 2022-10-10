@@ -14,7 +14,7 @@ import time
 keyboard = Controller()
 
 list = [0, 0, 0, 0]
-print(list)
+# print(list)
 
 def hold_key(key, hold_time):
     start = time.time()
@@ -23,20 +23,26 @@ def hold_key(key, hold_time):
 
 def one_loop():
     # print(loop_nuber_1)
-    print("Testuji 0 - 9 na kruhu")
-    for i in range(0, 9):
-        hold_key('A', 0.2)
-        # list[loop_nuber_1] = i+1
+    # print("Testuji 0 - 9 na kruhu")
+    one_loop_count = 0
+    list[3] = 0
+    for i in range(0, 10):
         print(list)
+        list[3] = list[3] + 1
+        # print("ring_4: ", one_loop_count)
+        Fone_loop_count = one_loop_count + 1
+        hold_key('A', 0)
+        # list[loop_nuber_1] = i+1
+        # print(list)
         #for tesyt
         key = "x"
         keyboard.press(key)
         keyboard.release(key)
 
 def change_loop(loop_numer_2):
-    print("mením císlo kruhu o - 1")
+    # print("mením císlo kruhu o - 1")
     list[2] = list[2] + 1
-    print(loop_numer_2)
+    # print(loop_numer_2)
 
     keyboard.press(Key.enter)
     keyboard.release(Key.enter)
@@ -47,7 +53,7 @@ def change_loop(loop_numer_2):
         keyboard.press(key)
         keyboard.release(key)
 
-    hold_key('F', 0.2)
+    hold_key('F', 0)
     print("hold F")
 
     for i in range(loop_numer_2, 3):
@@ -57,13 +63,28 @@ def change_loop(loop_numer_2):
         print("press F")
 
 def basic_change_loop(loop_number_3):
-    for i in range (0, loop_number_3):
+    for i in range (loop_number_3, 3):
         key = "f"
         keyboard.press(key)
         keyboard.release(key)
-    hold_key('F', 0.2)
+    hold_key('F', 0)
 
-    for i in range (0, 3):
+    for i in range (0, loop_number_3+1):
+        key = "f"
+        keyboard.press(key)
+        keyboard.release(key)
+
+    keyboard.press(Key.enter)
+    keyboard.release(Key.enter)
+
+def basic_change_loop_2():
+    for i in range (0, 1):
+        key = "f"
+        keyboard.press(key)
+        keyboard.release(key)
+    hold_key('F', 0)
+
+    for i in range (0, 2):
         key = "f"
         keyboard.press(key)
         keyboard.release(key)
@@ -73,19 +94,37 @@ def basic_change_loop(loop_number_3):
 
 
 
-time.sleep(5)
+time.sleep(4)
 loop_number = 0
 counter = 0
 loop_number_2 = 0
 
+ring_1 = 0
+# print("ring_1:", ring_1)
 
-for i in range (0, 9):
-    #otestovat 10 číslic na kruhu
-    one_loop()
-    #posun kruh o jedno a vrt zpět na předchozí
-    basic_change_loop(1)
+ring_2 = 0
+list[1] = 0
+# otestovat 10 číslic na kruhu x-9-x-x
+for i in range (0, 10):
+    # print("ring_2:", ring_2)
+    print(list)
 
-
+    ring_3 = 0
+    list[2] = 0
+    # otestovat 10 číslic na kruhu x-x-9-9
+    for i in range (0, 10):
+        print(list)
+        # print("ring_3:", ring_3)
+        #otestovat 10 číslic na kruhu (4) x-x-x-9
+        one_loop()
+        #posun kruh (3) o jedno a vrt zpět na (4)
+        basic_change_loop(counter)
+        ring_3 = ring_3 + 1
+        list[2] = list[2]+1
+    basic_change_loop_2()
+    # counter = counter +1
+    ring_2 = ring_2 + 1
+    list[1] = list[1]+1
 
 
 
